@@ -4,12 +4,11 @@ pipeline {
     stages {
         stage('Hello World') {
             steps {
-                // Checkout code from Git with a valid refspec
+                // Checkout code from the 'main' branch
                 checkout([$class: 'GitSCM', 
-                          branches: [[name: '*/master']], // Adjust the branch name as needed
+                          branches: [[name: 'main']], // Adjust the branch name as needed
                           doGenerateSubmoduleConfigurations: false,
                           extensions: [],
-                          submoduleCfg: [],
                           userRemoteConfigs: [[url: 'https://github.com/mayurmarvel/simple-java']]])
                 
                 // Compile and run Java code on Windows
